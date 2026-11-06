@@ -1,0 +1,57 @@
+Deskripsi
+Template portofolio untuk UI/UX designer, product designer, dan mobile designer dengan gaya Memphis 90-an yang ceria dan jauh dari kata membosankan. Bentuk geometris melayang mengikuti kursor, tombol timbul yang terasa bisa ditekan, ponsel 3D yang berputar menampilkan karya terbaru, kartu proyek yang menumpuk satu per satu saat di-scroll, keycap alat kerja yang bisa ditekan langsung dari keyboard, garis perjalanan berliku yang tergambar sendiri, dan testimoni berbentuk percakapan grup chat lengkap dengan indikator mengetik.
+
+Semua isi dikelola dari CMS: profil, foto, CV, proyek dengan galeri, alat kerja (70+ logo), pengalaman, layanan beserta harga, testimoni, dan pesan masuk. Data contoh sudah lengkap dengan ilustrasi mockup aplikasi dan avatar sehingga tampilannya langsung meriah sejak pertama dibuka.
+Cara kerja
+Halaman depan dibangun dari data MySQL: judul hero dipecah menjadi huruf yang memantul, sapaan memakai nama depan dari profil, dan layar ponsel 3D di hero otomatis memakai gambar galeri pertama dari proyek unggulan. Kartu proyek memakai posisi sticky dengan jarak atas yang bertambah per kartu sehingga menumpuk saat di-scroll, lalu kartu yang tertimpa sedikit mengecil dan miring. Filter kategori langsung memperbarui tumpukan.
+
+Alat kerja ditampilkan sebagai keycap berwarna dengan garis tingkat penguasaan; keycap bisa diklik atau ditekan dengan mengetik huruf awal nama alat di keyboard. Pengalaman kerja dan pendidikan tersusun di kiri-kanan garis SVG berliku yang tergambar sesuai progres scroll, dan testimoni muncul satu per satu seperti pesan di grup chat. Setiap proyek punya halaman studi kasus dengan cover dalam jendela browser yang tegak saat di-scroll, kartu info, alat yang dipakai, cerita berformat, galeri miring dengan lightbox, dan navigasi proyek sebelum/berikutnya.
+
+CMS dilindungi password hash, CSRF, kunci setelah 5 kali gagal login, dan pembatalan sesi lain saat password diganti. Upload gambar dicek tipe aslinya lalu digambar ulang menjadi WebP. Formulir kontak dengan pilihan anggaran berbentuk chip dikirim tanpa reload dan dilindungi honeypot, batas 3 pesan per 10 menit per IP, serta penolakan pesan dobel; pesan bisa diekspor ke CSV yang aman untuk Excel.
+Fitur
+Gaya Memphis 90-an: bentuk geometris, garis zigzag, warna cerah flat (tanpa gradasi & tanpa emoji)
+Judul hero dengan huruf yang muncul berurutan dan memantul saat disentuh kursor
+Ponsel 3D CSS yang berputar mengikuti kursor dan scroll, layarnya otomatis menampilkan karya unggulan
+Bentuk dekorasi melayang dengan parallax berlapis
+Kartu proyek yang menumpuk saat di-scroll (sticky stacking cards) + filter kategori
+Tombol dan kartu timbul yang terasa ditekan saat diklik
+Keycap alat kerja yang bisa diklik atau ditekan dari keyboard (huruf awal nama alat)
+Pita berjalan berisi logo semua alat kerja
+Timeline perjalanan kiri-kanan dengan garis SVG berliku yang tergambar sesuai scroll
+Testimoni berbentuk grup chat: pesan muncul satu per satu dengan indikator mengetik
+Formulir kontak dengan pilihan anggaran berbentuk chip, dikirim tanpa reload
+Halaman studi kasus: cover jendela browser 3D, kartu info, galeri miring + lightbox, proyek sebelum/berikutnya
+Progress bar scroll dan animasi muncul bergaya pegas
+CMS lengkap: profil, foto, CV PDF, proyek + galeri, 70+ logo alat, pengalaman, layanan, testimoni, pesan
+4 warna utama (koral, teal, ungu, kuning) bisa diganti dari CMS
+Dashboard pengunjung 30 hari, grafik 14 hari, proyek terpopuler, pesan terbaru
+Upload gambar otomatis jadi WebP, folder upload anti-eksekusi script
+Keamanan: PDO, CSRF, password_hash, kunci login, sesi batal saat ganti password
+Honeypot + batas kirim per IP + tolak pesan dobel, CSV aman dari formula injection
+Responsif HP 390px sampai 1920px, animasi mati otomatis untuk mode kurangi gerakan
+Data contoh lengkap dengan 30+ ilustrasi mockup & avatar, PHP Native tanpa framework
+Panduan instalasi
+Kebutuhan: PHP 8.1 atau lebih baru (ekstensi GD aktif, bawaan XAMPP) dan MySQL/MariaDB.
+
+Ekstrak ZIP lalu pindahkan folder porto-memphis ke:
+
+XAMPP: C:\xampp\htdocs\porto-memphis
+Laragon: C:\laragon\www\porto-memphis
+Jalankan Apache dan MySQL.
+
+Buka http://localhost/phpmyadmin → Import → pilih database/porto_memphis.sql → Import.
+
+Atau lewat terminal:
+
+mysql -u root -p < database/porto_memphis.sql
+Sesuaikan config/database.php jika user/password MySQL kamu berbeda.
+
+Buka situs: http://localhost/porto-memphis/
+
+CMS: http://localhost/porto-memphis/index.php?page=login (atau tautan CMS di footer)
+
+Username: admin
+Password: admin123 (segera ganti di menu Akun)
+Ganti profil, proyek, dan alat kerja dari CMS, lalu upload ke hosting.
+
+Tips: unggah gambar galeri berorientasi potret (misal 900 x 1800) pada proyek unggulan agar tampil pas di layar ponsel 3D hero.
